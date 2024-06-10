@@ -1,0 +1,35 @@
+_format_version: "3.0"
+services:
+- name: httpbin-service
+  url: https://httpbin.org
+  retries: 0
+  connect_timeout: 5000
+  write_timeout: 5000
+  read_timeout: 5000
+  routes:
+  - name: the-route
+    regex_priority: 200
+    strip_path: false
+    methods: [GET, HEAD]
+    protocols: [http]
+    paths:
+    - ~/
+    plugins:
+    - name: rate-limit-custom
+      enabled: true
+      config:
+        header_name: x-tenant-id
+        limit_by: header
+        policy: local
+        minute: 1
+        header_values:
+          xbe:
+            second: 1
+            minute: 1
+            hour: 1
+            day: 1
+            month: 1
+            year: 1
+          bebebbe:
+            second: 1
+            minute: 1
