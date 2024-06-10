@@ -102,7 +102,11 @@ end
 
 local function get_limitis(conf, identifier)
   local custom_limits = conf.header_values[identifier]
+  if custom_limits then
+    return custom_limits
+  end
 
+  -- if doesent exist return the default configuration
   return {
     second = conf.second,
     minute = conf.minute,
