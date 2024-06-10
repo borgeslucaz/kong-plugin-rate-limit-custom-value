@@ -21,15 +21,7 @@ services:
         header_name: x-tenant-id
         limit_by: header
         policy: local
-        minute: 1
+        second: 1
         header_values:
-          xbe:
-            second: 1
-            minute: 1
-            hour: 1
-            day: 1
-            month: 1
-            year: 1
           bebebbe:
-            second: 1
             minute: 1
